@@ -13,62 +13,37 @@ class WallpaperHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<WallpaperCategory> wallpaperCategories = [
-      WallpaperCategory(
-          name: "Animals",
-          image: "https://source.unsplash.com/1600x900/?animals"),
-      WallpaperCategory(
-          name: "Architecture",
-          image: "https://source.unsplash.com/1600x900/?architecture"),
-      WallpaperCategory(
-          name: "Nature",
-          image: "https://source.unsplash.com/1600x900/?nature"),
-      WallpaperCategory(
-          name: "People",
-          image: "https://source.unsplash.com/1600x900/?people"),
-      WallpaperCategory(
-          name: "Technology",
-          image: "https://source.unsplash.com/1600x900/?technology"),
-      WallpaperCategory(
-          name: "Travel",
-          image: "https://source.unsplash.com/1600x900/?travel"),
-      WallpaperCategory(
-          name: "Food", image: "https://source.unsplash.com/1600x900/?food"),
-      WallpaperCategory(
-          name: "Sports",
-          image: "https://source.unsplash.com/1600x900/?sports"),
-      WallpaperCategory(
-          name: "Fashion",
-          image: "https://source.unsplash.com/1600x900/?fashion"),
-      WallpaperCategory(
-          name: "Business",
-          image: "https://source.unsplash.com/1600x900/?business"),
-      WallpaperCategory(
-          name: "Education",
-          image: "https://source.unsplash.com/1600x900/?education"),
-      WallpaperCategory(
-          name: "Health",
-          image: "https://source.unsplash.com/1600x900/?health"),
-      WallpaperCategory(
-          name: "Music", image: "https://source.unsplash.com/1600x900/?music"),
-      WallpaperCategory(
-          name: "Religion",
-          image: "https://source.unsplash.com/1600x900/?religion"),
-      WallpaperCategory(
-          name: "Actors",
-          image: "https://source.unsplash.com/1600x900/?religion"),
-      WallpaperCategory(
-          name: "Science",
-          image: "https://source.unsplash.com/1600x900/?science"),
-      WallpaperCategory(
-          name: "Spirituality",
-          image: "https://source.unsplash.com/1600x900/?spirituality"),
-      WallpaperCategory(
-          name: "Art", image: "https://source.unsplash.com/1600x900/?art"),
-      WallpaperCategory(
-          name: "History",
-          image: "https://source.unsplash.com/1600x900/?history"),
+    final categories = [
+      "Animals",
+      "Architecture",
+      "Nature",
+      "People",
+      "Technology",
+      "Travel",
+      "Food",
+      "Sports",
+      "Fashion",
+      "Business",
+      "Education",
+      "Health",
+      "Music",
+      "Religion",
+      "Actors",
+      "Science",
+      "Spirituality",
+      "Art",
+      "History",
+      "Places",
+      "Industry",
+      "Computer",
     ];
+
+    final List<WallpaperCategory> wallpaperCategories = List.generate(
+        categories.length,
+        (index) => WallpaperCategory(
+            name: categories[index],
+            image:
+                "https://source.unsplash.com/1600x900/?${categories[index].toLowerCase()}"));
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(

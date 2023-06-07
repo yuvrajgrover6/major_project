@@ -5,7 +5,7 @@ class Font {
   String name;
   String path;
   String type;
-  double size;
+  var size;
   Font({
     required this.id,
     required this.name,
@@ -30,7 +30,7 @@ class Font {
       name: map['name'] as String,
       path: map['path'] as String,
       type: map['type'] as String,
-      size: map['size'] as double,
+      size: map['size'] ,
     );
   }
 

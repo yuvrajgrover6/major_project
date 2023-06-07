@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -16,27 +18,29 @@ class FontView extends StatelessWidget {
         title: const Text('Font View'),
       ),
       body: Obx(
-        () => ListView.builder(
-          itemCount: controller.fonts.length,
-          itemBuilder: (context, index) {
-            final font = controller.fonts[index];
-            return ListTile(
-              leading: CircleAvatar(
-                  child:
-                      Text(font.name[0], style: TextStyle(color: Colors.white)),
-                  backgroundColor: Colors
-                      .primaries[Random().nextInt(Colors.primaries.length)]),
-              title: Text(font.name),
-              subtitle: Text(font.size.toString()),
-              trailing: IconButton(
-                icon: const Icon(Icons.download),
-                onPressed: () {
-                  controller.downloadFont(font);
+        () => controller.fonts.isEmpty
+            ? const Center(child: CircularProgressIndicator())
+            : ListView.builder(
+                itemCount: controller.fonts.length,
+                itemBuilder: (context, index) {
+                  final font = controller.fonts[index];
+                  return ListTile(
+                    leading: CircleAvatar(
+                        child: Text(font.name[0],
+                            style: const TextStyle(color: Colors.white)),
+                        backgroundColor: Colors.primaries[
+                            Random().nextInt(Colors.primaries.length)]),
+                    title: Text(font.name),
+                    subtitle: Text("${font.size} KB"),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.download),
+                      onPressed: () {
+                        controller.downloadFont(font);
+                      },
+                    ),
+                  );
                 },
               ),
-            );
-          },
-        ),
       ),
     );
   }
